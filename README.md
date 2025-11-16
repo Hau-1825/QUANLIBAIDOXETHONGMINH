@@ -73,73 +73,126 @@
 
 ---
 
-### 2️⃣ Khởi Tạo Cơ Sở Dữ Liệu
-Tạo một file mới `init_db.py` và thêm đoạn mã sau:
+### 2️⃣ Thư viện và khai báo phần cứng
 ```python
-from database import init_db
-init_db()
+#include <Servo.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
 ```
-Chạy file để tạo cơ sở dữ liệu:
+👉 Dùng 3 thư viện:
+
+Servo.h – điều khiển servo barie
+
+LiquidCrystal_I2C – điều khiển màn LCD 16x2 qua I2C
+
+Wire.h – giao tiếp I2C
+
+---
+
+### 3️⃣ Khai báo chân cảm biến
+```python
+#define SENSOR_ENTRY 2
+#define SENSOR_EXIT  3
+#define SLOT1 4
+#define SLOT2 5
+#define SLOT3 6
+#define SLOT4 7
+#define SERVO_ENTRY_PIN 9
+#define SERVO_EXIT_PIN 10
+
+```
 ```bash
-python init_db.py
+| Chân | Chức năng                   |
+| ---- | --------------------------- |
+| 2    | Cảm biến vào (entry sensor) |
+| 3    | Cảm biến ra (exit sensor)   |
+| 4–7  | Cảm biến chỗ đỗ S1–S4       |
+| 9    | Servo cổng vào              |
+| 10   | Servo cổng ra               |
+
 ```
 
 ---
 
-### 3️⃣ Thêm Bản Ghi Đỗ Xe
-Tạo file `add_record.py` và thêm mã sau:
+### 4️⃣ Servo điều khiển barie
 ```python
-from database import add_parking_record
-entry_time = add_parking_record('A1', 'ABC-123', '/path/to/image.jpg')
-print(f"Entry time: {entry_time}")
+void openGate(Servo &gate) {
+  gate.write(0); // mở
+}
+void closeGate(Servo &gate) {
+  gate.write(90); // đóng
+}
+
 ```
-Chạy file để thêm bản ghi:
 ```bash
-python add_record.py
+Mở: quay 0°
+
+Đóng: quay 90°
+
+Có delay để gate thực sự chuyển động
+
+In LCD để báo trạng thái
+
+Chú ý: servo vào và ra sử dụng cùng một hàm, truyền bằng tham chiếu Servo &gate.
 ```
 
 ---
 
-### 4️⃣ Cập Nhật Thời Gian Ra
-Tạo file `update_exit.py` và thêm mã sau:
+### 5️⃣ Đọc trạng thái slot + cập nhật LCD
 ```python
-from database import update_exit_time
-exit_time = update_exit_time('A1')
-print(f"Exit time: {exit_time}")
+slotState[i] == LOW ? "X" : "O";
 ```
-Chạy file để cập nhật thời gian ra:
-```bash
-python update_exit.py
+Low = có xe -> X
+Hight = trống xe -> O
+```python
+S1:X S2:O
+S3:O S4:X
 ```
 
 ---
 
-### 5️⃣ Lấy Lịch Sử Đỗ Xe
-Tạo file `get_history.py` và thêm mã sau:
+### 6️⃣ Hàm đếm số bãi trống
 ```python
-from database import get_parking_history
-records = get_parking_history()
-for record in records:
-    print(record)
+if (slotState[i] == HIGH) freeCount++;
 ```
-Chạy file để xem lịch sử đỗ xe:
-```bash
-python get_history.py
-```
+Hight = trống -> thêm xe vào
+
 
 ---
+---
 
-### 6️⃣ Xóa Lịch Sử Đỗ Xe
-Tạo file `clear_history.py` và thêm mã sau:
+### 7️⃣ Gửi log ra Serial Monitor
 ```python
-from database import clear_parking_history
-clear_parking_history()
-print("Parking history cleared.")
+Serial.print("[S1:X] ");
 ```
-Chạy file để xóa lịch sử đỗ xe:
-```bash
-python clear_history.py
+In đầy đủ trạng thái của 4 slot và số chỗ trống
+```python
+Slots: [S1:X] [S2:O] [S3:O] [S4:X] | Free: 2
+
 ```
+```
+### 8️⃣  Setup() 
+```pythonpinMode(..., INPUT_PULLUP);
+```
+Các cảm biến đều được bật PULLUP → bình thường HIGH → kích hoạt LOW.
+```python
+servoEntry.attach(9);
+servoExit.attach(10);
+closeGate(servoEntry);
+closeGate(servoExit);
+
+```
+→ Barie vào & ra đều đóng khi khởi động.
+```python
+lcd.init();
+lcd.backlight();
+updateLCD();
+
+```
+Hiển thị trạng thái slot ngay từ đầu.
 
 ---
 
