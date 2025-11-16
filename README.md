@@ -13,7 +13,7 @@
 
 
 <p align="left">
-  Hệ thống quản lý bãi đỗ xe tích hợp nhận diện biển số xe tự động, với giao diện web hiện đại để quản lý bãi đỗ một cách dễ dàng và hiệu quả. Dữ liệu điểm danh được lưu trữ trong liteSQL 
+  Hệ thống quản lý bãi đỗ xe tích hợp nhận diện biển số xe tự động, với giao diện web hiện đại để quản lý bãi đỗ một cách dễ dàng và hiệu quả. Dữ liệu điểm danh được lưu trữ trong lite SQL 
 </p>
 
 ---
@@ -161,8 +161,8 @@ python clear_history.py
 ---
 ## 📝 Bản quyền
 
-© 2025 Đinh Thế Thành-Nhóm 3-CNTT_16-01, Khoa Công nghệ Thông tin, Đại học Đại Nam. Mọi quyền được bảo lưu.
+© 2025 Vũ Văn Hậu-Nhóm 2-CNTT_17-01, Khoa Công nghệ Thông tin, Đại học Đại Nam. Mọi quyền được bảo lưu.
 <div align="center">
-Được thực hiện bởi 💻 Nhóm 3-CNTT_16-01 tại Đại học Đại Nam
+Được thực hiện bởi 💻 Nhóm 2-CNTT_17-01 tại Đại học Đại Nam
 
-Email cá nhân : dinhthethanh73@gmail.com
+Email cá nhân : vuvanhau10082005@gmail.com
