@@ -5,8 +5,8 @@
 <p align="center">
 </p>
 <p align="center">
-<img src="[QUẢN LÝ BÃI ĐỖ XE THÔNG MINH/logoDaiNam.png](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Logo_DAI_NAM.png/1128px-Logo_DAI_NAM.png)" alt="DaiNam University Logo" width="200"/>
-<img src="QUẢN LÝ BÃI ĐỖ XE THÔNG MINH/LogoAIoTLab.png" alt="AIoTLab Logo" width="170"/>
+<img src="QLBaiDoXe/Logodainam.png" alt="DaiNam University Logo" width="200"/>
+<img src="QLBaiDoXe/logoiot.png" alt="AIoTLab Logo" width="170"/>
 </p>
 
 </div>
@@ -20,7 +20,7 @@
 ## 🌟 Sơ Đồ Kết Nối Mạch
 </p>
 <p align="center">
-<img src="QUẢN LÝ BÃI ĐỖ XE THÔNG MINH/Sơ đồ mạch của dự án.png" alt="DaiNam University Logo" width="700"/>
+<img src="QLBaiDoXe/Sodoketnoi.jpg" width="700"/>
 </p>
 
 
@@ -29,10 +29,8 @@
 ## 🌟 WEB QUẢN LÝ 
 </p>
 <p align="center">
-<img src="QUẢN LÝ BÃI ĐỖ XE THÔNG MINH/z6397324787388_5b2bdf6e062445c1b4436a7e419d03dd.jpg" alt="DaiNam University Logo" width="700"/>
+<img src="QLBaiDoXe/Wequanli.jpg" width="700"/>
 
-
-<img src="QUẢN LÝ BÃI ĐỖ XE THÔNG MINH/z6397324787412_395f1f62e6016d0a1acee370f9fdd80a.jpg" alt="DaiNam University Logo" width="700"/>
 </p>
 
 
