@@ -26,7 +26,7 @@
 
 ---
 
-## 🌟 WEB QUẢN LÝ 
+## 🌟 WEB QUẢN LÝ (Minh họa)
 </p>
 <p align="center">
 <img src="QLBaiDoXe/Wequanli.jpg" width="700"/>
